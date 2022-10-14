@@ -1,0 +1,183 @@
+from tkinter import *
+import tkinter as tk
+from tkinter import ttk
+from tkinter import messagebox as mb
+from PIL import ImageTk, Image
+from Questions import questions
+
+
+
+
+questions = ["Say this spirits name in the mirror 3 times and ___ appears?",
+                     "The Collector in the 1995 Tales from the Crypt Movie: Demon Knight is played by which actor?",
+                     "This nicely dressed spirit has you collecting his 8 pages?",
+                     "In the creature feature Tremors, the creatures are given what nickname?",
+                     "John Carpenter's 'The Thing' is based off what book?",
+                     "This movie featured deadly ball like creatures from space?",
+                     "In the Dawn of the Dead remake, what was Anna's occupation before the start of the zombie apocalypse?",
+                     "What is the name of the infamous serial killer that transfered his soul into a doll?",
+                     "The 1987 classic 'Monster Squad' gave us this line 'The wolfman's got__'?",
+                     "In the 1978 Halloween, how many times does Dr. Loomis claimed to have shot Michael?"]
+
+
+choices = ["Freddy Krueger", "Bloody Mary","Candyman","Beetlejuice"],["Billy Zane","Mark Strong","Arnold Vosloo","Richard Moll"],["Mothman","The Gentlemen","Slenderman","The Boogeyman"],["Sand Snake","Grabboids","Sandworm","Ragworm"],["Who Goes There by John W Campbell","The War of the Worlds by H. G. Wells","Snow Crash by Neal Stephenson","The Body Snatchers by Jack Finney"],["Gremlins","Killer Clowns from Outer Space","Trolls","Critters"],["secretary","nurse","cashier","dentist"],["Charles Lee Ray","Christopher Lee","Ray Charles","Chris Rays"],["big claws","big feet","nards","soft fur"],["4","6","8","5"]
+
+correct_answers = ["Candyman", "Billy Zane","Slenderman","Grabboids","Who Goes There by John W Campbell","Critters","nurse","Charles Lee Ray","nards","6"]
+
+
+
+
+
+   
+   
+
+
+
+root = Tk()
+
+root.geometry('1000x600+0+0')
+root.title('Trivioso')
+root.config(bg = 'black')
+
+
+
+
+
+
+lantern =  ImageTk.PhotoImage(Image.open("E:\FinalProject2\giphy.gif"))
+jack =  ImageTk.PhotoImage(Image.open("E:\FinalProject2\jack o lantern.gif"))
+
+
+label3 = Label(root, image = jack)
+label3.place(x = 50, y = 20)
+label2 = Label(root, text = " Happy Halloween", fg = 'orange', font = ('arial', 20, 'italic'), bg = 'black', bd = 0)
+label2.place(x = 0, y = 0)
+
+
+####
+def printInput():
+    inp = aBox.get(1.0, "end-1c")
+
+def printInput2():
+    inp = bBox.get(1.0, "end-1c")
+
+def printInput3():
+    inp = cBox.get(1.0, "end-1c")
+
+def printInput4():
+    inp = dBox.get(1.0, "end-1c")    
+#Buttons and text fields
+
+aButton = Button(root, text = "a:",  font = ('arial', 16, 'bold'), bg = 'black', fg = 'white', bd = 0, activebackground = 'black', activeforeground = 'white', command = printInput)
+aButton.place(height = 50, width = 60, x = 175, y = 300) 
+
+
+aBox = Text(root, state = 'disabled',
+                    font = ('arial', 12, 'bold'), height = 2, width = 35, fg = 'orange', bg = 'black', bd = 0)
+
+aBox.place(x = 410, y = 346, anchor = 's')
+
+aBox.configure(state = 'normal')
+aBox.insert(END, choices[0][0])
+aBox.configure(state = 'disabled')
+
+
+###
+
+bButton = Button(root, text = "b: ", font = ('arial', 16, 'bold'), bg = 'black', fg = 'white', bd = 0, activebackground = 'black', activeforeground = 'white', command = printInput)
+bButton.place(height = 50, width = 60, x = 600, y = 300)
+######
+
+bBox = Text(root, state = 'disabled', height = 2, width = 35, fg = 'orange', bg = 'black', bd = 0, font = ('arial', 12, 'bold') )
+
+bBox.place(x = 810, y = 343, anchor = 's')
+
+bBox.configure(state = 'normal')
+bBox.insert(END, choices[0][1])
+bBox.configure(state = 'disabled')
+
+
+
+###
+
+cButton = Button(root, text = "c:", font = ('arial', 16, 'bold'), bg = 'black', fg = 'white', bd = 0, activebackground = 'black', activeforeground = 'white', command = printInput)
+cButton.place(height = 50, width = 60, x = 175, y = 450)
+
+
+cBox = Text(root, state = 'disabled', height = 2, width = 35, fg = 'orange', bg = 'black', bd = 0, font = ('arial', 12, 'bold'))
+
+cBox.place(x = 410, y = 493, anchor = 's')
+
+cBox.configure(state = 'normal')
+cBox.insert(END,choices[0][2])
+cBox.configure(state = 'disabled')
+
+
+
+####
+
+dButton = Button(root, text = "d:", font = ('arial', 16, 'bold'), bg = 'black', fg = 'white', bd = 0, activebackground = 'black', activeforeground = 'white', command = printInput)
+dButton.place(height = 50, width = 60, x = 600, y = 450)
+
+dBox = Text(root, state = 'disabled', height = 2, width = 35, fg = 'orange', bg = 'black', bd = 0, font = ('arial', 12, 'bold') )
+
+dBox.place(x = 810, y = 493, anchor = 's')
+
+dBox.configure(state = 'normal')
+dBox.insert(END, choices[0][3])
+dBox.configure(state = 'disabled')
+
+
+
+###
+
+quitButton = Button(root, text = "Quit", font = ('arial', 16, 'bold'),
+            bg = 'black', fg = 'crimson', bd = 0, command = root.destroy)
+quitButton.place(height = 50, width = 60, x = 930, y = 530)
+
+
+
+mainMenu = Button(root, text = "Main", font = ('arial', 16, 'bold'), bg = 'black', fg = 'orange', bd = 0)
+mainMenu.place(height = 50, width = 60, x = 930, y = 10)
+
+
+
+
+########
+
+
+
+QuestionBox = Text(root, state = 'disabled', height = 2, width = 75,
+            font = ('arial', 14, 'bold'), fg = 'orange', bg = 'black', bd = 0)
+
+QuestionBox.place(x = 565, y = 250, anchor = 's')
+
+QuestionBox.configure(state = 'normal')
+
+QuestionBox.insert(END, questions[0])
+
+QuestionBox.configure(state = 'disabled')
+
+
+##############
+
+
+for i in range(8):
+    if choices == correct_answers[i]:
+        QuestionBox.delete(1.0, END)
+        QuestionBox.insert(END, questions[i + 1])
+
+        aBox.delete(1.0, END)
+        aBox.insert(END, choices[i + 1])
+            
+        bBox.delete(1.0, END)
+        bBox.insert(END, choices[i +1])
+            
+        cBox.delete(1.0, END)
+        cBox.insert(END, choices[i + 1])
+        
+        dBox.delete(1.0, END)
+        dBox.insert(END, choices[i + 1])
+      
+
+root.mainloop()
